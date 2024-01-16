@@ -58,7 +58,6 @@ class _VideoViewState extends State<VideoView> {
     return Scaffold(
       appBar: AppBar(),
       body: initialized
-          // If the video is initialized, display it
           ? Scaffold(
               body: Center(
                 child: AspectRatio(
@@ -67,7 +66,6 @@ class _VideoViewState extends State<VideoView> {
                 ),
               ),
             )
-          // If the video is not yet initialized, display a spinner
           : const Center(
               child: CircularProgressIndicator(),
             ),

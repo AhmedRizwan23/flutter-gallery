@@ -13,7 +13,7 @@ class GalleryScreen extends StatefulWidget {
 class _GalleryScreenState extends State<GalleryScreen> {
   List<AssetEntity> assets = [];
   List<AssetPathEntity> albums = [];
-  AssetPathEntity? selectedAlbum; // Make selectedAlbum nullable
+  AssetPathEntity? selectedAlbum;
 
   @override
   void initState() {
@@ -22,7 +22,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
   }
 
   Future<void> _fetchAssets() async {
-    // Fetch all available albums in the phone storage
     albums = await PhotoManager.getAssetPathList(type: RequestType.video);
 
     if (albums.isNotEmpty) {
@@ -42,7 +41,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
       assets = await selectedAlbum!.getAssetListRange(
         start: 0,
         end: 100000,
-        //  type: RequestType.image, // Adjusted to fetch image assets
       );
       setState(() {});
     }
